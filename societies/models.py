@@ -36,16 +36,16 @@ class Society(models.Model):
 
 class Building(models.Model):
     name = models.CharField(max_length=100)
-    society = models.CharField(max_length=100, unique=True, blank=True, null=True)
-    building = models.CharField(max_length=100,unique=True, blank=True, null=True)
+    society = models.CharField(max_length=100, blank=True, null=True)
 
 
     def __str__(self):
-        return f"{self.society} {self.building}"
+        return f" {self.name}"
 
 class Unit(models.Model):
-	building = models.ForeignKey(Building, on_delete=models.CASCADE)
-	unit_number = models.CharField(max_length=10)
-	unit_type = models.CharField(max_length=10)
+	building = models.ForeignKey(Building, on_delete=models.SET_NULL, blank=True, null=True)
+	unit_name = models.CharField(max_length=10)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+
+   

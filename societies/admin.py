@@ -23,10 +23,10 @@ class SocietyAdmin(admin.ModelAdmin):
 
 @admin.register(Building)
 class BuildingAdmin(admin.ModelAdmin):
-    list_display = ('name', 'society', 'building')
+    list_display = ('name', 'society')
     list_filter = ('society',)
     search_fields = ('name', 'society__name')
     
 @admin.register(Unit)
 class UnitAdmin(admin.ModelAdmin):
-    list_display = ('building', 'unit_number', 'unit_type')
+    list_display = ('building',  'unit_name')
